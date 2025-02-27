@@ -46,4 +46,4 @@ Envía mensajes de voz con contenido de texto personalizado.**
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal](assets/Captura_de_Pantalla.png)
+![Pantalla Principal](PROYECTO01-Texto a Voz/assets/Captura_de_pantalla.png)

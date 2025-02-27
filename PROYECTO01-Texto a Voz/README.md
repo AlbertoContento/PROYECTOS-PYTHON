@@ -46,4 +46,4 @@ Envía mensajes de voz con contenido de texto personalizado.**
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/assets/Captura_de_pantalla.png)
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/assets/Captura_de_pantalla.png)

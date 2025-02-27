@@ -24,7 +24,7 @@ Para poner en marcha este proyecto en tu máquina local, sigue estos pasos:
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tuusuario/mi-proyecto.git
+https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 ```
 
 ### 2. Instalacion automatica de dependencias

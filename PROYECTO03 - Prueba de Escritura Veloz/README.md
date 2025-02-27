@@ -35,4 +35,5 @@ Cómo Usar ❓
 **Mejora tu escritura de mecanografía con este programa**
 
 🎨 Capturas de Pantalla Aquí tienes una vista previa de cómo luce el proyecto:
-https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO02-%20Juego%20de%20Arcade%20Pong/assets/Captura_de_pantalla.png
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO02-%20Juego%20de%20Arcade%20Pong/assets/Captura_de_pantalla.png
+)

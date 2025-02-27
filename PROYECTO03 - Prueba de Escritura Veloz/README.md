@@ -2,23 +2,27 @@
 Comprueba y mejora tu velocidad de escritura con este programa de Prueba veloz de
 escritura.⌨️
 
-🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 
-💻 Python - Dependecia Tkinter
+- 💻 **Python** - Dependecia Tkinter
 
-🖥️ Características
-⌨️ Aplicacion para mejorar la velocidad de escritura.
-🖱️ Interfaz de usuario interactiva: Una interfaz limpia y sencilla para una interacción fluida del usuario.
+## 🖥️ Características
+-⌨️ Aplicacion para mejorar la velocidad de escritura.
+-🖱️ Interfaz de usuario interactiva: Una interfaz limpia y sencilla para una interacción fluida del usuario.
 
-⚙️ Instalación
+## ⚙️ Instalación
 Para poner en marcha este proyecto en tu máquina local, sigue estos pasos:
 
-1. Clonar el Repositorio
-git clone https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
-2. Instalacion automatica de dependencias
+### 1. Clonar el Repositorio
 
-Cómo Usar ❓
+```bash
+git clone https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
+```
+
+### 2. Instalacion automatica de dependencias
+
+**Cómo Usar ❓**
 
 1. Ejecuta el programa Python.
 

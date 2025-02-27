@@ -1,5 +1,5 @@
 # Editor de Texto ⌨️
-Juega y disfruta del juego retro Arcade Pong con este programa para 2 jugadores. El primero en ganar 5 puntos gana. Distintos nivel de dificultad 1-5.🎮
+El Editor de Texto es una herramienta que permite crear, editar y guardar archivos de texto. Ofrece una interfaz simple y funcional, ideal para tareas básicas de escritura o programación
 
 ## 🛠️ Tecnologías Utilizadas
 Este proyecto fue desarrollado utilizando las siguientes tecnologías:
@@ -7,7 +7,7 @@ Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 - 💻 **Python** - Tkinter - PIL
 
 ## 🖥️ Características
-- 🕹️ **Juego Ping-Pong**: Juego de dos jugadores.
+- ⌨️ **Editor de Texto**: Editor de texto con opciones de edicion y diseño.
 - 🖱️ **Interfaz de usuario interactiva**: Una interfaz limpia y sencilla para una interacción fluida del usuario.
 
 ## ⚙️ Instalación

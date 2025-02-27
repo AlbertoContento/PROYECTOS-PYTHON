@@ -13,8 +13,7 @@ Una aplicación que convierte texto escrito a voz utilizando la librería `pytts
 - **Tecnologías**: Python
 - **Descripción**: Convierte texto a voz utilizando un sintetizador.
   
-### 2. **[PROYECTO02 - Juego de Arcade Pong]([https://github.com/AlbertoContento/PROYECTO02-Juego-de-Arcade-Pong](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO02-%20Juego%20de%20Arcade%20Pong))** 🎮
-
+### 2. **[PROYECTO02 - Juego de Arcade Pong](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO02-%20Juego%20de%20Arcade%20Pong)** 🎮
 Un sencillo juego de Pong desarrollado con la librería `pygame`, emulando el clásico juego de arcade.
 
 - **Tecnologías**: Python, pygame

@@ -6,7 +6,7 @@ Este repositorio alberga una colección de varios proyectos en Python que fueron
 
 Este repositorio contiene los siguientes proyectos:
 
-### 1. **[PROYECTO01 - Texto a Voz](https://github.com/AlbertoContento/PROYECTO01-Texto-a-Voz)** 📢
+### 1. **[PROYECTO01 - Texto a Voz](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO01-Texto%20a%20Voz)** 📢
 
 Una aplicación que convierte texto escrito a voz utilizando la librería `pyttsx3`.
 

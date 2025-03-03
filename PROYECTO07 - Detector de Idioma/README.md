@@ -45,4 +45,4 @@ https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal]()
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO07%20-%20Detector%20de%20Idioma/Captura%20_de_pantalla.png)

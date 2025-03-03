@@ -53,7 +53,7 @@ Comprobador de la conectividad de sitios web utilizando la librería `requests`.
 
 Para poder ejecutar los proyectos, es necesario tener Python instalado en tu máquina.
 
-- Python 3.x: [Descargar Python](https://www.python.org/downloads/)
+- Python 3.13.2: [Descargar Python](https://www.python.org/downloads/)
   
 Instalar las librerías necesarias con pip:
 

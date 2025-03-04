@@ -43,6 +43,10 @@ https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 
 **El resolutor utiliza el algoritmo de Backtracking para resolver el Sudoku.**
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO06%20-%20Comprobador%20de%20Conectividad%20de%20Sitios%20Web/assets/Captura_de_pantalla.png)

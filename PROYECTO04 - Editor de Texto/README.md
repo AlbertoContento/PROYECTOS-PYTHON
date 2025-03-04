@@ -30,6 +30,10 @@ git clone https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 
 4. Edicion de deshacer y rehacer.
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO04%20-%20Editor%20de%20Texto/assets/Captura_de_pantalla.png)

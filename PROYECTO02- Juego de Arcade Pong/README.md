@@ -37,6 +37,10 @@ Jugador derecho🔵
 
 4. El jugador que llegue a 5 puntos gana. 
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO02-%20Juego%20de%20Arcade%20Pong/assets/Captura_de_pantalla.png)

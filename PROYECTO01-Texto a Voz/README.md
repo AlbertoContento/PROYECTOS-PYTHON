@@ -44,6 +44,10 @@ https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 **Crea audiolibros personalizados convirtiendo texto de tus libros o artículos favoritos.
 Envía mensajes de voz con contenido de texto personalizado.**
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO01-Texto%20a%20Voz/assets/Captura_de_pantalla.png?raw=true)

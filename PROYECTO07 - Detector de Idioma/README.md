@@ -43,6 +43,10 @@ https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 
 **El programa utiliza el modulo langdetect para detectar el idioma automaticamente**
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal]()

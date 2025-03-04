@@ -38,5 +38,9 @@ git clone https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 
 **Mejora tu escritura de mecanografía con este programa**
 
+📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
 🎨 Capturas de Pantalla Aquí tienes una vista previa de cómo luce el proyecto:
 ![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO03%20-%20Prueba%20de%20Escritura%20Veloz/assets/Captura_de_pantalla.png)

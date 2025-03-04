@@ -62,4 +62,6 @@ Este proyecto está bajo la licencia MIT.
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla.png)(https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla1.png)
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla.png)
+
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla1.png)

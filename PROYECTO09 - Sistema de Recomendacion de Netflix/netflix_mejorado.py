@@ -2,6 +2,21 @@ import sys
 from PyQt5.QtGui import QIcon, QPalette, QColor
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QTextEdit
 from PyQt5.QtCore import Qt
+import pandas as pd
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+
+# Verificar si los recursos ya están descargados
+nltk_data = ['punkt', 'stopwords', 'wordnet']
+
+for resource in nltk_data:
+    try:
+        nltk.data.find(f'tokenizers/{resource}')
+    except LookupError:
+        print(f"El recurso {resource} no está disponible, descargando...")
+        nltk.download(resource)
 
 
 class MiVentana(QWidget):
@@ -171,15 +186,69 @@ class MiVentana(QWidget):
         # Hacer visible el QLabel
         self.recomendacion_label.setVisible(True)
 
-    #FUNCION RECOMENDAR
-    def recomendar(self):
-        self.mostrar_recomendacion_label()#Mostramos mensaje
-        texto_input = self.text_input.text() #obtengo lo que hay en text_input
+    # Función de preprocesamiento de texto
+    def procesar_texto(self, texto):
+        # Tokenización: Convertimos el texto en una lista de palabras (tokens)
+        tokens = word_tokenize(texto.lower())  # Convertir a minúsculas para asegurar que todo se compare sin importar el caso
+        
+        # Eliminar stopwords: Filtramos palabras que no aportan información útil para la búsqueda (como "de", "el", "a", etc.)
+        tokens = [t for t in tokens if t not in stopwords.words('english')]
+        
+        # Lemmatización: Reducimos las palabras a su forma base. Por ejemplo, "running" se convierte en "run".
+        lemmatizer = WordNetLemmatizer()
+        tokens = [lemmatizer.lemmatize(t) for t in tokens]
+        
+        # Devolvemos el texto procesado como una cadena unida de nuevo
+        return ' '.join(tokens)
 
+    # FUNCION RECOMENDAR
+    def recomendar(self):
+        # Mostramos el mensaje de recomendación
+        self.mostrar_recomendacion_label()  
+        
+        # Obtenemos el texto que el usuario ha ingresado en el campo de entrada (text_input)
+        texto_input = self.text_input.text()  
+        
+        # Limpiamos el área de texto donde mostraremos las recomendaciones
+        self.text_area.setText("")  
+        
+        # Variable para verificar si hemos encontrado alguna recomendación
+        encontrada = False
+
+        # Verificamos si el usuario ha ingresado texto en el campo de entrada
         if texto_input:
-            with open("netflixData.csv", "r") as file:
-                csv_reader = csv_reader(file)
-                next(csv_reader) #saltar la cabecera para la fila de encabezado
+            # Preprocesamos el texto de entrada del usuario (aplicamos tokenización, eliminación de stopwords y lematización)
+            texto_input_procesado = self.procesar_texto(texto_input)
+
+            # Cargamos el archivo CSV con los datos de Netflix (películas y series)
+            df = pd.read_csv("netflixData.csv")
+            
+            # Preprocesamos las columnas de 'Title', 'Description' y 'Genres' del DataFrame de manera similar al texto de entrada
+            df['Title'] = df['Title'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos el título
+            df['Description'] = df['Description'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos la descripción
+            df['Genres'] = df['Genres'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos los géneros
+
+            # Creamos una máscara booleana que verifica si el texto de entrada (procesado) se encuentra en alguna de las columnas preprocesadas
+            mask = df['Title'].str.contains(texto_input_procesado, case=False) | \
+                  df['Description'].str.contains(texto_input_procesado, case=False) | \
+                  df['Genres'].str.contains(texto_input_procesado, case=False)
+
+            # Filtramos las filas del DataFrame que coinciden con la búsqueda y tomamos los primeros 20 resultados
+            resultados = df[mask].head(10)  # Mostrar solo los primeros 20 resultados
+
+            # Verificamos si hay resultados
+            if not resultados.empty:
+                # Si encontramos resultados, los mostramos en el área de texto
+                for _, row in resultados.iterrows():
+                    self.text_area.append(row["Title"])  # Mostramos el título de las coincidencias
+                    encontrada = True  # Marcamos que se ha encontrado al menos una coincidencia
+
+            # Si no se encontraron resultados, mostramos un mensaje indicando que no hay recomendaciones
+            if not encontrada:
+                self.text_area.append(f"No hay ninguna recomendación con: {texto_input}")
+        else:
+            # Si el usuario no ha introducido texto, mostramos un mensaje indicando que no se ha introducido ninguna película/serie
+            self.recomendacion_label.setText("No has Introducido ninguna Película|Serie")
 
     #FUNCION REINICIAR
     def reiniciar(self):
@@ -187,11 +256,9 @@ class MiVentana(QWidget):
         self.text_area.clear() #Limpiamos el textarea
         self.recomendacion_label.setVisible(False)  # Ocultar la etiqueta de recomendaciones
 
-  
     #FUNCION SALIR
     def salir(self):
         self.close()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

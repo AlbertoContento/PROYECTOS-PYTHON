@@ -1,23 +1,22 @@
-# ⏰ Reloj Despertador
+# 🎬 Sistema de Recomendación de Netflix
 
-Este es un reloj despertador desarrollado en Python con Tkinter para la interfaz gráfica. Permite programar una alarma y reproducir una canción aleatoria de una lista cuando se activa.
+Este proyecto es un sistema de recomendaciones de películas y series de Netflix basado en el texto de entrada del usuario. Utiliza técnicas de procesamiento de lenguaje natural (PLN) para comparar el texto ingresado con los títulos, descripciones y géneros de las películas/series de un archivo CSV.
 
 ## 🛠️ Tecnologías Utilizadas
 Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 
-- 💻 **Python** - tkinter - threading - webbrowser - json
+- 💻 **Python** - pandas - nltk - PyQt5
 
 **Requisitos:📑**
 Asegúrate de tener Python instalado.
 
 ## 🖥️ Características
 
-✅ Configuración de hora, minutos y segundos.
-✅ Alarma programable con sonido.
-✅ Reproducción de música desde una URL.
-✅ Interfaz gráfica intuitiva con Tkinter.
-✅ Muestra la hora actual en tiempo real.
-✅ Implementación con hilos para una ejecución fluida.
+✅ Procesamiento de texto con tokenización, eliminación de stopwords y lematización.  
+✅ Recomendación basada en títulos, descripciones y géneros.  
+✅ Interfaz gráfica de usuario (GUI) con PyQt5.  
+✅ Búsqueda eficiente de películas/series en el archivo CSV.  
+✅ Muestra las recomendaciones o un mensaje cuando no se encuentren coincidencias.
 
 ## ⚙️ Instalación
 Para poner en marcha este proyecto en tu máquina local, sigue estos pasos:
@@ -27,7 +26,6 @@ Para poner en marcha este proyecto en tu máquina local, sigue estos pasos:
 ```bash
 https://github.com/AlbertoContento/PROYECTOS-PYTHON.git
 ```
-
 ### 2. Instalacion de dependencias
 ```bash
 pip install -r requirments.txt
@@ -41,13 +39,15 @@ python reloj_despertador.py
 
 1.  Ejecuta el programa Python.
 
-2.  Ingresa hora, minutos y segundos.
+2.  Ingresa el nombre de una película, serie o género en el campo de texto.
 
-3.  Dale al botón Programar alarma.
+3.  Haz clic en el botón de "Recomendar".
 
-3. El programa crea la alarma y cuando llegue la hora sonará la cancion
+3.  El programa procesará tu texto e imprimirá las recomendaciones basadas en las coincidencias encontradas.
 
-4.  Opcion de Reiniciar y Salir
+4.  Si no se encuentran recomendaciones, te mostrará un mensaje indicando que no se han encontrado coincidencias.
+
+5.  Opcion de Reiniciar y Salir
 
 **El programa utiliza webbrowser para abrir el navegador y reproducir la musica y threading para comprobar la hora cada segundo**
 
@@ -57,4 +57,5 @@ Este proyecto está bajo la licencia MIT.
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal]()
+
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla.png)

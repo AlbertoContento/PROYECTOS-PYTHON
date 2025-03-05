@@ -3,7 +3,21 @@ from PyQt5.QtGui import QIcon, QPalette, QColor
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QTextEdit
 from PyQt5.QtCore import Qt
 import pandas as pd
-import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+
+# Verificar si los recursos ya están descargados
+nltk_data = ['punkt', 'stopwords', 'wordnet']
+
+for resource in nltk_data:
+    try:
+        nltk.data.find(f'tokenizers/{resource}')
+    except LookupError:
+        print(f"El recurso {resource} no está disponible, descargando...")
+        nltk.download(resource)
+
 
 class MiVentana(QWidget):
     def __init__(self):
@@ -12,11 +26,11 @@ class MiVentana(QWidget):
         self.setGeometry(100, 100, 700, 800)  # Posición (x, y) y tamaño (ancho, alto)
 
         # Favicon
-        self.setWindowIcon(QIcon('favicon.ico'))  # Asegúrate de tener el favicon.ico en el directorio actual
+        self.setWindowIcon(QIcon('../assets/images/favicon.ico'))  # Asegúrate de tener el favicon.ico en el directorio actual
 
         # Imagen
         self.image_label = QLabel(self)
-        self.image_label.setPixmap(QIcon('Netflix_Logo.png').pixmap(220, 120))  # Ajusta la ruta de la imagen
+        self.image_label.setPixmap(QIcon('../assets/images/Netflix_Logo.png').pixmap(220, 120))  # Ajusta la ruta de la imagen
         # Centrar la imagen
         self.image_label.setAlignment(Qt.AlignCenter)
 
@@ -172,32 +186,68 @@ class MiVentana(QWidget):
         # Hacer visible el QLabel
         self.recomendacion_label.setVisible(True)
 
+    # Función de preprocesamiento de texto
+    def procesar_texto(self, texto):
+        # Tokenización: Convertimos el texto en una lista de palabras (tokens)
+        tokens = word_tokenize(texto.lower())  # Convertir a minúsculas para asegurar que todo se compare sin importar el caso
+        
+        # Eliminar stopwords: Filtramos palabras que no aportan información útil para la búsqueda (como "de", "el", "a", etc.)
+        tokens = [t for t in tokens if t not in stopwords.words('english')]
+        
+        # Lemmatización: Reducimos las palabras a su forma base. Por ejemplo, "running" se convierte en "run".
+        lemmatizer = WordNetLemmatizer()
+        tokens = [lemmatizer.lemmatize(t) for t in tokens]
+        
+        # Devolvemos el texto procesado como una cadena unida de nuevo
+        return ' '.join(tokens)
+
     # FUNCION RECOMENDAR
     def recomendar(self):
-        self.mostrar_recomendacion_label()  # Mostramos mensaje
-        texto_input = self.text_input.text()  # Obtengo lo que hay en text_input
-        self.text_area.setText("")  # Limpiamos el text_area antes de añadir resultados
-        # Variable para verificar si encontramos alguna coincidencia
+        # Mostramos el mensaje de recomendación
+        self.mostrar_recomendacion_label()  
+        
+        # Obtenemos el texto que el usuario ha ingresado en el campo de entrada (text_input)
+        texto_input = self.text_input.text()  
+        
+        # Limpiamos el área de texto donde mostraremos las recomendaciones
+        self.text_area.setText("")  
+        
+        # Variable para verificar si hemos encontrado alguna recomendación
         encontrada = False
-        if texto_input:
-            df = pd.read_csv("netflixData.csv")  # Cargar datos
-            resultado = 0  # Reiniciar el contador de resultados
-            max_resultados = 20  # Número máximo de resultados a mostrar
-            for index, row in df.iterrows():  # Iteramos en las filas
-                titulo = str(row["Title"]).strip()  # Aseguramos que sea un string y eliminamos espacios
-                descripcion = str(row["Description"]).strip()
-                genero = str(row["Genres"]).strip()
-                # Verificar si el texto de entrada está en alguna de las columnas (titulo, descripcion o genero)
-                if re.search(texto_input, titulo, re.IGNORECASE) or re.search(texto_input, descripcion, re.IGNORECASE) or re.search(texto_input, genero, re.IGNORECASE):
-                    resultado += 1  # Contamos un resultado
-                    self.text_area.append(titulo)  # Mostrar el título
-                    encontrada = True
-                if resultado == max_resultados:  # Limitar a 15 resultados
-                    break
 
+        # Verificamos si el usuario ha ingresado texto en el campo de entrada
+        if texto_input:
+            # Preprocesamos el texto de entrada del usuario (aplicamos tokenización, eliminación de stopwords y lematización)
+            texto_input_procesado = self.procesar_texto(texto_input)
+
+            # Cargamos el archivo CSV con los datos de Netflix (películas y series)
+            df = pd.read_csv("../assets/data/netflixData.csv")
+            
+            # Preprocesamos las columnas de 'Title', 'Description' y 'Genres' del DataFrame de manera similar al texto de entrada
+            df['Title'] = df['Title'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos el título
+            df['Description'] = df['Description'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos la descripción
+            df['Genres'] = df['Genres'].apply(lambda x: self.procesar_texto(str(x)))  # Preprocesamos los géneros
+
+            # Creamos una máscara booleana que verifica si el texto de entrada (procesado) se encuentra en alguna de las columnas preprocesadas
+            mask = df['Title'].str.contains(texto_input_procesado, case=False) | \
+                df['Description'].str.contains(texto_input_procesado, case=False) | \
+                df['Genres'].str.contains(texto_input_procesado, case=False)
+
+            # Filtramos las filas del DataFrame que coinciden con la búsqueda y tomamos los primeros 20 resultados
+            resultados = df[mask].head(10)  # Mostrar solo los primeros 20 resultados
+
+            # Verificamos si hay resultados
+            if not resultados.empty:
+                # Si encontramos resultados, los mostramos en el área de texto
+                for _, row in resultados.iterrows():
+                    self.text_area.append(row["Title"])  # Mostramos el título de las coincidencias
+                    encontrada = True  # Marcamos que se ha encontrado al menos una coincidencia
+
+            # Si no se encontraron resultados, mostramos un mensaje indicando que no hay recomendaciones
             if not encontrada:
-                self.text_area.setText(f"No hay ninguna recomendación con: {texto_input}")
+                self.text_area.append(f"No hay ninguna recomendación con: {texto_input}")
         else:
+            # Si el usuario no ha introducido texto, mostramos un mensaje indicando que no se ha introducido ninguna película/serie
             self.recomendacion_label.setText("No has Introducido ninguna Película|Serie")
 
     #FUNCION REINICIAR

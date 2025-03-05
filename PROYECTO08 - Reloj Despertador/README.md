@@ -13,10 +13,15 @@ Asegúrate de tener Python instalado.
 ## 🖥️ Características
 
 ✅ Configuración de hora, minutos y segundos.
+
 ✅ Alarma programable con sonido.
+
 ✅ Reproducción de música desde una URL.
+
 ✅ Interfaz gráfica intuitiva con Tkinter.
+
 ✅ Muestra la hora actual en tiempo real.
+
 ✅ Implementación con hilos para una ejecución fluida.
 
 ## ⚙️ Instalación
@@ -57,4 +62,7 @@ Este proyecto está bajo la licencia MIT.
 
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
-![Pantalla Principal]()
+
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla.png)
+
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla1.png)

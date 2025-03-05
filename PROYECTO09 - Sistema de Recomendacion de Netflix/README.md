@@ -32,7 +32,8 @@ pip install -r requirments.txt
 ```
 ### 3. Ejecutar el programa
 ```bash
-python reloj_despertador.py
+python netflix_facil.py
+python netflix_mejorado.py
 ```
 
 **Cómo Usar ❓**
@@ -58,4 +59,4 @@ Este proyecto está bajo la licencia MIT.
 🎨 Capturas de Pantalla
 Aquí tienes una vista previa de cómo luce el proyecto:
 
-![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO08%20-%20Reloj%20Despertador/assets/Captura_de_pantalla.png)
+![Pantalla Principal](https://github.com/AlbertoContento/PROYECTOS-PYTHON/blob/main/PROYECTO09%20-%20Sistema%20de%20Recomendacion%20de%20Netflix/assets/Captura%20_de%20_pantalla.png)

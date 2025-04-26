@@ -48,6 +48,31 @@ Comprobador de la conectividad de sitios web utilizando la librería `requests`.
 - **Descripción**: Comprueba si una URL está activa y conectada a internet.
 
 ---
+### 7. **[PROYECTO07 - Detector de idioma](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO07%20-%20Detector%20de%20Idioma)** 🌍📝
+
+
+Este proyecto es un detector de idiomas pasandole un texto o parte de un texto el programa te detecta y te muestra en que idioma has escrito el texto.
+
+- **Tecnologías**: Python - langdetect - tkinter
+- **Descripción**: Detector de idioma mediante un texto.
+
+---
+### 8. **[PROYECTO08 - Reloj Despertador con musica](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO08%20-%20Reloj%20Despertador)** ⏰🎶
+
+Permite programar una alarma y reproducir una canción aleatoria de una lista cuando se activa.
+
+- **Tecnologías**: Python- threading - webbrowser - json
+- **Descripción**: Programa tu alarma y sonará una cancion aleatoria.
+
+---
+### 9. **[PROYECTO09 - Sistema de Recomendacion de Netflix](https://github.com/AlbertoContento/PROYECTOS-PYTHON/tree/main/PROYECTO09%20-%20Sistema%20de%20Recomendacion%20de%20Netflix)** 🎬🍿
+
+Sistema de recomendacion de peliculas y series estilo Netflix en que compara la entrada de texto que titulos, generos y descripciones de peliculas y series.
+
+- **Tecnologías**: Python, requests
+- **Descripción**: Este proyecto es un sistema de recomendaciones de películas y series de Netflix.
+
+---
 
 ## 📋 Requisitos
 
